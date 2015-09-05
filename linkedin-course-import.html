@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Lucas Lin : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Lucas Lin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/lucaslin/Piazza-courses-to-LinkedIn-profile">View on GitHub</a>
+
+          <h1 id="project_title">Piazza courses to LinkedIn profile</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <!--Google's Closure compiler -->  
+        <form action="http://closure-compiler.appspot.com/compile" method="POST">
+          <p>Type JavaScript code to optimize here:</p>
+          <textarea name="js_code" cols="50" rows="5">
+            function hello(name) {
+              // Greets the user
+              alert('Hello, ' + name);
+            }
+            hello('New user');
+          </textarea>
+          <input type="hidden" name="compilation_level" value="WHITESPACE_ONLY">
+          <input type="hidden" name="output_format" value="text">
+          <input type="hidden" name="output_info" value="compiled_code">
+          <br><br>
+          <input type="submit" value="Optimize">
+        </form>      
+      
+        <h3>Instructions</h3>
+    
+    		<p>Drag the link below to your bookmarks bar to use it:<p>
+    		<p> 
+    			<a href="javascript:!function(){var e=document.domain;-1!=e.indexOf('piazza.com')&&!function(){var e=$('#my_classes div'),t=[];e.each(function(){var e=$(this).html(),i=$('.course_number',this).text(),n=e.split('</span>')[1].split('<span')[0];t.push({number:i,name:n})});var i=JSON.stringify(t);prompt('Copy this! (Ctrl+C)\nThen paste it in LinkedIn',i)}(),-1!=e.indexOf('linkedin.com')&&!function(){var e=prompt('Paste in your course list!');if(e){var t=JSON.parse(e),i=$('#courses-edit-clone .edit-competencies.item'),n=i.length-1,s=0;for(s=0;s<t.length;s++)$('#courses-edit-clone .add-item button').click();$('#courses-edit-clone .edit-competencies.item').each(function(){$('.course-num.input input',this).attr('disabled',!1),$('.course-occup select',this).attr('disabled',!1)});var c=$('#courses-edit-clone .edit-competencies.item');for(s=0;s+n<c.length;s++)$('.course.input input',c[s+n]).val(t[s].name),$('.course-num.input input',c[s+n]).val(t[s].number)}}()}();">
+    				Piazza to LinkedIn
+    			</a>
+    		</p>
+    		
+    		<br>
+    		
+    		<p>
+    			Go to <a href="https://piazza.com/" target="_blank">piazza.com</a> and click the bookmarklet.
+    			<br>
+    			A dialog should pop up with the input highlighted (this is a JSON list of your courses and their numbers). 
+    			Use Ctrl+C (Cmd+C) to copy it. 
+    		</p>
+    		
+    		<p>
+    			Go to <a href="https://www.linkedin.com/profile/edit" target="_blank">linkedin.com/profile/edit</a>.
+    			<br>
+    			Next, navigate to the Courses section that allows you to add courses (you should see the input form to add a course) and click the bookmarklet.
+    			<br>
+    			Paste the list you coppied from Piazza into the input dialog and click OK.
+    		</p>
+    		
+    		<p>
+    			You should now see the courses list populated with your courses from Piazza!
+    		</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    <script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  	
+  	  ga('create', 'UA-67213766-1', 'auto');
+  	  ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>

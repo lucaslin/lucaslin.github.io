@@ -3,27 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting to LinkedIn</title>
-  <script>
-        var listIndex = window.location.href.indexOf('courselist=');
-        
-        if (listIndex === -1){
-          // TODO: displayError();
-        }
-        else {
-          var listQuery = window.location.href.substring(listIndex);
-          var linkedinEncodedUrl = 'http://www.linkedin.com/profile/edit?' + listQuery;
-          
-          // TODO: show countdown
-          setTimeout(function(){
-            window.location.href = linkedinEncodedUrl;    
-          }, 5000);
-        }    
-                 
-    
-  </script>
+  <style>
+    .wrapper {
+      text-align: center;
+    }
+    .content {
+      display: none;
+      max-width: 500px;
+      font-size: 14px;
+      font-family: Helvetica, Arial, sans-serif;
+      text-align: left;
+    }
+
+  </style>
 </head>
 <body>
-Test with error
+
+  <div class="wrapper">
+    <div class="content" id="positive-message">
+      <h1>You're being redirected to LinkedIn!</h1>
+      <p>Once on your edit-profile page, click the bookmarklet again to fill in your courses.</p>
+    </div>
+    <div class="content" id="negative-message">
+      <h1>Sorry...It looks like something went wrong.</h1>
+      <p>We can't find any courses to import.</p>
+    </div>
+  </div>
+
+  <script>
+    var listIndex = window.location.href.indexOf('courselist=');
+    
+    if (listIndex === -1){
+      // TODO: displayError();
+      document.getElementById('negative-message').style.display = 'inline-block';
+    }
+    else {
+      document.getElementById('positive-message').style.display = 'inline-block';
+      var listQuery = window.location.href.substring(listIndex);
+      var linkedinEncodedUrl = 'http://www.linkedin.com/profile/edit?' + listQuery;
+      
+      // TODO: show countdown? Link to click?
+      setTimeout(function(){
+        window.location.href = linkedinEncodedUrl;    
+      }, 4000);
+    }    
+  </script>
   
 </body>
 </html>

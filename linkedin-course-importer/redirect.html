@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <title>Redirecting to LinkedIn</title>
   <script>
-    setTimeout(function(){
-        var listQuery = window.location.href.substring(window.location.href.indexOf('courselist='))                        
-        var linkedinEncodedUrl = 'http://www.linkedin.com/profile/edit?' + listQuery;
-        window.location.href = linkedinEncodedUrl;             
-    }, 5000);
+    
+        var listQuery = window.location.href.substring(window.location.href.indexOf('courselist='));
+        if (listQuery === -1){
+          // TODO: displayError();
+        }
+        else {
+          // TODO: show countdown
+          setTimeout(function(){
+            var linkedinEncodedUrl = 'http://www.linkedin.com/profile/edit?' + listQuery;
+            window.location.href = linkedinEncodedUrl;    
+          }, 5000);
+        }    
+                 
+    
   </script>
 </head>
 <body>

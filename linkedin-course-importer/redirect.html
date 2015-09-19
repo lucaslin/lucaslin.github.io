@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to LinkedIn</title>
+  <script>
+    setTimeout(function(){
+        var listQuery = window.location.href.substring(window.location.href.indexOf('courselist='))                        
+        var linkedinEncodedUrl = 'http://www.linkedin.com/profile/edit?' + listQuery;
+        window.location.href = linkedinEncodedUrl;             
+    }, 5000);
+  </script>
+</head>
+<body>
+Test
+  
+</body>
+</html>

@@ -52,7 +52,6 @@ $(function() {
         }
     };
 
-
     function play() {
         clearTimeout(currentTimeout);
         console.log(year)
@@ -125,15 +124,6 @@ $(function() {
         update();
     }
 
-    //From http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html Accessed April 22, 2013
-    var div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-
-
-    // from all-concentrations-list.js
-    var allList = allConcentrationsList;
-
     var total = {
         "Concentration": "Total",
         "Category": "",
@@ -154,6 +144,11 @@ $(function() {
         "2012": 5053
     };
 
+    //From http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html Accessed April 22, 2013
+    var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     var margin = {
             top: 100,
             right: 100,
@@ -163,6 +158,8 @@ $(function() {
         w = 768 - margin.left - margin.right,
         h = 900 - margin.top - margin.bottom;
 
+    // from all-concentrations-list.js
+    var allList = allConcentrationsList;
     allList.sort(function(a, b) {
         return b[year] - a[year];
     });
@@ -170,8 +167,6 @@ $(function() {
     var data = cList.filter(function(concentration) {
         return concentration[year] !== 0;
     });
-
-
 
     var x, y;
     var gap = 2;
@@ -238,8 +233,6 @@ $(function() {
                 return d[year];
             });
     }
-    year = 2000;
-
 
     function getList(category) {
         return cList.filter(function(concentration) {
@@ -264,8 +257,6 @@ $(function() {
                 return false;
         }
     });
-
-
 
     function draw(list) {
         //From Hidenari Nozaki at http://hdnrnzk.me/2012/07/04/creating-a-bar-graph-using-d3js/, Accessed April 20, 2013 11:56PM
@@ -308,7 +299,7 @@ $(function() {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.html("<embed src='./img/" + d.Concentration + ".svg'" + " type='image/svg+xml' />" + "<p style='margin-left: 15px;'></p>")
+                div.html("<embed src='./img/" + encodeURIComponent(d.Concentration) + ".svg'" + " type='image/svg+xml' />" + "<p style='margin-left: 15px;'></p>")
                     .style("left", (280) + "px")
                     .style("top", (d3.event.pageY + 20) + "px");
             })
@@ -397,10 +388,13 @@ $(function() {
             .text(String);
     }
 
+
+    // Immediate Execution
+    year = 2000;    
     draw(allList)
     addVideo();
 
-
+    // Event Handlers
     $('#all-button').on('click', function() {
         clearTimeout(currentTimeout);
         draw(allList);

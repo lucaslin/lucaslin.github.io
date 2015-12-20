@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <title>Harvard Concentrations</title>
+    <link rel="icon" type="image/ico" href="./img/favicon.ico" />
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <script src="./js/d3.v3.min.js"></script>
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/all-concentrations-list.js"></script>
+    <script src="./js/analytics.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/barchart.css" type="text/css">
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>Harvard Concentrations <small>A Story</small></h1>
+        <a href="./ProcessBook3.pdf" class="btn btn-mini"><i class="icon-book"></i> Process Book</a>
+        <a href="#video-modal" role="button" class="btn btn-mini" data-toggle="modal" id="#video-modal-button"><i class="icon-play"></i>&nbsp;Project Video</a>
+        <p style="float:right; margin-right: 30px; font-size: 12px;">Jerry Chang | Lucas Lin</p>
+        <div id="video-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="video-modalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="video-modalLabel" style="color:black">CS171 Project 3</h3>
+            </div>
+            <div class="modal-body" id="video-container">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+        <div id="csModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="csLabel" aria-hidden="true">
+            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" style="float:right;">X</button>
+            <script type="text/javascript" charset="utf-8" src="areaChart_edgePreload.js"></script>
+            <style>
+            .edgeLoad-EDGE-1408421314 {
+                visibility: hidden;
+            }
+            </style>
+            <div id="Stage" class="EDGE-1408421314">
+            </div>
+        </div>
+        <i href="#help" data-toggle="modal" class="icon-info-sign icon-white"></i>
+        <div id="help" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="helpLabel" aria-hidden="true">
+            <div class="modal-header" style="color:black">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <h3>How it works...</h3>
+            </div>
+            <div class="modal-body" style="color:black">
+                <strong>To filter by concentration categories:</strong>
+                <p style="color:#2B2B2B">Click on the categories at the top of the graph.</p>
+                <br>
+                <strong> To show all the concentrations again:</strong>
+                <p style="color:#2B2B2B">Press the refresh button next to the categories.</p>
+                <br>
+                <strong>To change the year shown:</strong>
+                <p style="color:#2B2B2B">Use the slider on top. </p>
+                <br>
+                <strong> To see line graphs for each concentration:</strong>
+                <p style="color:#2B2B2B">Mouse over a bar, and the line graph for that concentration will appear.</p>
+                <hr>
+                <strong>Stories</strong>
+                <p>Click on the CS or EC or BIO story books on the left to see the stories of those concentrations.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="top-section">
+        <div id="shield">
+            <img src="./img/harvardcrest.gif" class="crest" />
+            <img src="./img/bookCs.gif" class="book" href="#csModal" data-toggle="modal" id="cs-book" />
+            <img src="./img/bookEc.gif" class="book" id="ec-book" />
+            <img src="./img/biobook.gif" class="book" id="bio-book" />
+        </div>
+        <div id="chart-header">
+            <h2 id="year"></h2>            
+            <div id="forwardBack">
+                <button class="btn btn-primary" type="button"><i class="icon-play"></i></button>
+            </div>
+            <!-- Slider from http://api.jqueryui.com/slider/ Accessed April 22, 2013 1:57PM -->
+            <div id="slider"></div>            
+            <div id="category-buttons">
+                <div class="btn-group" data-toggle="buttons-radio">
+                    <button class="btn btn-mini filter" type="button" id="all-button">All</button>
+                    <button class="btn btn-mini filter" type="button" id="human-button">Humanitites</button>
+                    <button class="btn btn-mini filter" type="button" id="natural-button">Natural Sciences</button>
+                    <button class="btn btn-mini filter" type="button" id="social-button">Social Sciences</button>
+                </div>
+            </div>
+            <div id="story-text"></div>
+        </div>
+    </div>
+    <div id="mainVis">
+    </div>
+</body>
+
+</html>

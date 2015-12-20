@@ -3,7 +3,7 @@
  */
 (function($, Edge, compId){
 //images folder
-var im='images/';
+var im='img/';
 
 var fonts = {};
 
